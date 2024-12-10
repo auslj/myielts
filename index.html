@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My IELTS. </title>
+    <title>Welcome to My IELTS</title>
     <link rel="icon" type="image/svg+xml" href="favicon.png">
     <style>
+        /* Previous styles remain the same until .form-group */
         :root {
             --primary-color: #4a90e2;
             --text-color: #333;
@@ -53,11 +54,51 @@
             gap: 1rem;
         }
 
-        .qr-code {
-            width: 200px;
-            height: 200px;
+        /* New styles for topic selection */
+        .topic-list {
+            display: none;
+            margin-top: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
         }
 
+        .topic-item {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .topic-item:last-child {
+            border-bottom: none;
+        }
+
+        .topic-header {
+            padding: 1rem;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topic-header:hover {
+            background-color: #e9ecef;
+        }
+
+        .topic-content {
+            display: none;
+            padding: 1rem;
+            background-color: white;
+        }
+
+        .topic-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Previous styles continue */
         h1 {
             color: var(--primary-color);
             margin-bottom: 2rem;
@@ -129,26 +170,67 @@
     <div class="page-container">
         <div class="form-container">
             <h1>IELTS Writing Practice</h1>
-            <form action="https://formsubmit.co/myieltsstudy.me@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="New student IELTS Writing Submission">
+            <form action="https://formsubmit.co/your.email@example.com" method="POST">
+                <input type="hidden" name="_subject" value="New IELTS Writing Submission">
                 <input type="hidden" name="_template" value="table">
                 
                 <div class="form-group">
-                    <label for="topic">Select Topic Type:</label>
-                    <select id="topic" name="topic" required>
+                    <label for="topic-type">Select Topic Type:</label>
+                    <select id="topic-type" name="topic-type" required>
                         <option value="">Choose a topic type...</option>
                         <option value="task1-academic">Task 1 - Academic</option>
                         <option value="task1-general">Task 1 - General</option>
                         <option value="task2">Task 2</option>
                     </select>
-                </div>
-                 <div class="form-group">
-                    <label for="identity">Your Email:</label>
-                    <input type="text" id="email" name="email" required>
+
+                    <!-- Task 1 Academic Topics -->
+                    <div id="task1-academic-topics" class="topic-list">
+                        <div class="topic-item">
+                            <div class="topic-header">
+                                Line Graph: Global Temperature Changes
+                                <span class="toggle">▼</span>
+                            </div>
+                            <div class="topic-content">
+                                <p>Describe the changes in global temperature over the past century.</p>
+                                <img src="topic1-academic.png" alt="Global Temperature Graph" class="topic-image">
+                            </div>
+                        </div>
+                        <!-- Add more Task 1 Academic topics here -->
+                    </div>
+
+                    <!-- Task 1 General Topics -->
+                    <div id="task1-general-topics" class="topic-list">
+                        <div class="topic-item">
+                            <div class="topic-header">
+                                Formal Letter: Job Application
+                                <span class="toggle">▼</span>
+                            </div>
+                            <div class="topic-content">
+                                <p>Write a formal letter applying for a position as a research assistant.</p>
+                                <img src="topic1-general.png" alt="Job Application Example" class="topic-image">
+                            </div>
+                        </div>
+                        <!-- Add more Task 1 General topics here -->
+                    </div>
+
+                    <!-- Task 2 Topics -->
+                    <div id="task2-topics" class="topic-list">
+                        <div class="topic-item">
+                            <div class="topic-header">
+                                Technology in Education
+                                <span class="toggle">▼</span>
+                            </div>
+                            <div class="topic-content">
+                                <p>Discuss the advantages and disadvantages of using technology in education.</p>
+                                <img src="topic2.png" alt="Technology in Education" class="topic-image">
+                            </div>
+                        </div>
+                        <!-- Add more Task 2 topics here -->
+                    </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="title">Essay Title:</label>
+                    <label for="title">Essay Title/Question:</label>
                     <input type="text" id="title" name="title" required>
                 </div>
                 
@@ -164,9 +246,41 @@
         <div class="qr-container">
             <h2>Scan to Pay</h2>
             <img src="MyQRcode.png" alt="QR Code" class="qr-code">
-            <p> Scan the QR code to pay. </p>
-            <p> Check your email for feedback 48 hours after your submission. </p>
+            <p>Please scan the QR code to make your payment.</p>
         </div>
     </div>
+
+    <script>
+        // Show/hide topic lists based on selection
+        document.getElementById('topic-type').addEventListener('change', function() {
+            // Hide all topic lists
+            document.querySelectorAll('.topic-list').forEach(list => {
+                list.style.display = 'none';
+            });
+            
+            // Show selected topic list
+            const selectedType = this.value;
+            if (selectedType) {
+                document.getElementById(selectedType + '-topics').style.display = 'block';
+            }
+        });
+
+        // Toggle topic content
+        document.querySelectorAll('.topic-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const toggle = this.querySelector('.toggle');
+                
+                // Toggle display
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    toggle.textContent = '▼';
+                } else {
+                    content.style.display = 'block';
+                    toggle.textContent = '▲';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
