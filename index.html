@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My IELTS</title>
+    <title>Welcome to My IELTS.</title>
     <link rel="icon" type="image/svg+xml" href="favicon.png">
     <style>
-        /* Previous styles remain the same until .form-group */
         :root {
             --primary-color: #4a90e2;
             --text-color: #333;
@@ -52,9 +51,27 @@
             flex-direction: column;
             align-items: center;
             gap: 1rem;
+            text-align: center;
         }
 
-        /* New styles for topic selection */
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin: 1rem 0;
+        }
+
+        .qr-container h2 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .qr-container p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
         .topic-list {
             display: none;
             margin-top: 1rem;
@@ -98,7 +115,6 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        /* Previous styles continue */
         h1 {
             color: var(--primary-color);
             margin-bottom: 2rem;
@@ -170,7 +186,7 @@
     <div class="page-container">
         <div class="form-container">
             <h1>IELTS Writing Practice</h1>
-            <form action="https://formsubmit.co/your.email@example.com" method="POST">
+            <form action="https://formsubmit.co/myieltsstudy.me@gmail.com" method="POST">
                 <input type="hidden" name="_subject" value="New IELTS Writing Submission">
                 <input type="hidden" name="_template" value="table">
                 
@@ -195,7 +211,6 @@
                                 <img src="topic1-academic.png" alt="Global Temperature Graph" class="topic-image">
                             </div>
                         </div>
-                        <!-- Add more Task 1 Academic topics here -->
                     </div>
 
                     <!-- Task 1 General Topics -->
@@ -210,7 +225,6 @@
                                 <img src="topic1-general.png" alt="Job Application Example" class="topic-image">
                             </div>
                         </div>
-                        <!-- Add more Task 1 General topics here -->
                     </div>
 
                     <!-- Task 2 Topics -->
@@ -225,7 +239,6 @@
                                 <img src="topic2.png" alt="Technology in Education" class="topic-image">
                             </div>
                         </div>
-                        <!-- Add more Task 2 topics here -->
                     </div>
                 </div>
                 
@@ -244,7 +257,7 @@
         </div>
 
         <div class="qr-container">
-            <h2>Scan to Pay</h2>
+            <h2>Scan to Share</h2>
             <img src="MyQRcode.png" alt="QR Code" class="qr-code">
             <p>Please scan the QR code to make your payment.</p>
         </div>
