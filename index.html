@@ -129,7 +129,36 @@
     <div class="page-container">
         <div class="form-container">
             <h1>IELTS Writing Practice</h1>
-            
+            <form action="https://formsubmit.co/mozyolee@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New student IELTS Writing Submission">
+                <input type="hidden" name="_template" value="table">
+                
+                <div class="form-group">
+                    <label for="topic">Select Topic Type:</label>
+                    <select id="topic" name="topic" required>
+                        <option value="">Choose a topic type...</option>
+                        <option value="task1-academic">Task 1 - Academic</option>
+                        <option value="task1-general">Task 1 - General</option>
+                        <option value="task2">Task 2</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="identity">Your Email:</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="title">Essay Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="content">Your Essay:</label>
+                    <textarea id="content" name="content" required></textarea>
+                </div>
+                
+                <button type="submit">Submit Essay</button>
+            </form>
         </div>
 
         <div class="qr-container">
