@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article Submission</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.png">
+    <title>IELTS Article Submission</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         :root {
             --primary-color: #4a90e2;
@@ -94,35 +94,32 @@
 </head>
 <body>
     <div class="container">
-        <h1>Write Your Article</h1>
-        <form action="https://formsubmit.co/mozyolee@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="New Article Submission">
+        <h1>IELTS Writing Practice</h1>
+        <form action="https://formsubmit.co/your.email@example.com" method="POST">
+            <input type="hidden" name="_subject" value="New IELTS Writing Submission">
             <input type="hidden" name="_template" value="table">
             
             <div class="form-group">
-                <label for="topic">Select Topic:</label>
+                <label for="topic">Select Topic Type:</label>
                 <select id="topic" name="topic" required>
-                    <option value="">Choose a topic...</option>
-                    <option value="technology">Technology</option>
-                    <option value="science">Science</option>
-                    <option value="health">Health</option>
-                    <option value="environment">Environment</option>
-                    <option value="entertainment">Entertainment</option>
-                    <!-- Add more topics here -->
+                    <option value="">Choose a topic type...</option>
+                    <option value="task1-academic">Task 1 - Academic</option>
+                    <option value="task1-general">Task 1 - General</option>
+                    <option value="task2">Task 2</option>
                 </select>
             </div>
             
             <div class="form-group">
-                <label for="title">Article Title:</label>
+                <label for="title">Essay Title/Question:</label>
                 <input type="text" id="title" name="title" required>
             </div>
             
             <div class="form-group">
-                <label for="content">Article Content:</label>
+                <label for="content">Your Essay:</label>
                 <textarea id="content" name="content" required></textarea>
             </div>
             
-            <button type="submit">Submit Article</button>
+            <button type="submit">Submit Essay</button>
         </form>
     </div>
 </body>
